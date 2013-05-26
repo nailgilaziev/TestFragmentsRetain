@@ -16,7 +16,7 @@ public class A extends LogFragment {
 	TextView textView;	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,		Bundle savedInstanceState) {
-		Log.v(this.toString(), "onCreateView");
+		Log.w(this.toString(), "onCreateView");
 		textView=new TextView(getActivity());
 		textView.setText("A");
 		textView.setGravity(Gravity.CENTER);
@@ -24,3 +24,4 @@ public class A extends LogFragment {
 		return textView;
 	}
 }
+

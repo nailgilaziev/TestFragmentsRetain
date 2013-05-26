@@ -11,24 +11,46 @@ public class LogFragment extends Fragment{
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		Log.v(this.toString(), "onCreate");
+		Log.w(this.toString(), "onCreate");
 		super.onCreate(savedInstanceState);		
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-		Log.v(this.toString(), "onCreateView");
+		Log.w(this.toString(), "onCreateView");
 		return super.onCreateView(inflater, container, savedInstanceState);
+	}
+	@Override
+	public void onStart() {
+		Log.v(this.toString(), "onStart");
+		super.onStart();
+	}
+	@Override
+	public void onResume() {
+		Log.v(this.toString(), "onResume");
+		super.onResume();
+	}
+	
+	@Override
+	public void onPause() {
+		Log.v(this.toString(), "onPause");
+		super.onPause();
+	}
+	
+	@Override
+	public void onStop() {
+		Log.v(this.toString(), "onStop");
+		super.onStop();
 	}
 	
 	@Override
 	public void onDestroyView() {
-		Log.v(this.toString(), "onDestroyview");
+		Log.w(this.toString(), "onDestroyview");
 		super.onDestroyView();
 	}
 	@Override
 	public void onDestroy() {
-		Log.v(this.toString(), "onDestroy");
+		Log.w(this.toString(), "onDestroy");
 		super.onDestroy();
 	}
 }
