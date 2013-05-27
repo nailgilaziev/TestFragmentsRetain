@@ -20,7 +20,7 @@ public class A extends LogFragment {
 		textView=new TextView(getActivity());
 		textView.setText("A");
 		textView.setGravity(Gravity.CENTER);
-		textView.setBackgroundColor(Color.RED);
+		textView.setBackgroundColor(Color.GREEN);
 		return textView;
 	}
 }

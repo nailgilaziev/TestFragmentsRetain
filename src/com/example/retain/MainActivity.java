@@ -3,6 +3,7 @@ package com.example.retain;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
 import com.example.retain.fragments.A;
@@ -23,30 +24,22 @@ public class MainActivity extends FragmentActivity {
 		Log.w(this.toString(), "onCreate Activity");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);	
-		//at init state returned null
-		a = getSupportFragmentManager().findFragmentById(R.id.a);			
-		b = getSupportFragmentManager().findFragmentById(R.id.b);
-		c = getSupportFragmentManager().findFragmentById(R.id.c);
-		d = getSupportFragmentManager().findFragmentById(R.id.d);
-
-		//if don't retained
-		if (a == null) 
-			a = new A();
-		if (b == null) 
-			b = new B();
-		if (c == null) 
-			c = new C();
-		if (d == null) 
-			d = new D();
-
-
-		getSupportFragmentManager().beginTransaction()
-		.replace(R.id.a, a)
-		.replace(R.id.b, b)
-		.replace(R.id.c, c)
-		.replace(R.id.d, d)
-		.commit();
-		Log.i(this.toString(), "replaced");
+		FragmentManager fm = getSupportFragmentManager();
+		if(savedInstanceState == null) {
+			Log.i("savedInstanceState", "it is null");
+		    fm.beginTransaction()
+		            .replace(R.id.a, new A())
+		            .replace(R.id.b, new B())
+		            .replace(R.id.c, new C())
+		            .replace(R.id.d, new D())
+		            .commit();
+		}
+		else {
+		    a = fm.findFragmentById(R.id.a);
+		    b = fm.findFragmentById(R.id.b);
+		    c = fm.findFragmentById(R.id.c);
+		    d = fm.findFragmentById(R.id.d);
+		}		
 	}
 	@Override
 	protected void onStart() {

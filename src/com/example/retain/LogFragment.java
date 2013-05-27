@@ -12,6 +12,7 @@ public class LogFragment extends Fragment{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.w(this.toString(), "onCreate");
+		//setRetainInstance(true);
 		super.onCreate(savedInstanceState);		
 	}
 
